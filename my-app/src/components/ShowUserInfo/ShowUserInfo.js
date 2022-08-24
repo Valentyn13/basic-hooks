@@ -1,5 +1,5 @@
 
-const ShowUserInfo = ({user:{firstName, lastName, age}}) => {
+const ShowUserInfo = ({userList:{firstName, lastName, age}}) => {
 
 
     return (
