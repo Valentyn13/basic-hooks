@@ -1,11 +1,33 @@
-import GlobalStyle from "../globalStyles/globalStyles";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import { useState } from "react";
+import UserInfoForm from "../userInfoForm/UserInfoForm";
+import RenderListOfUsers from "../RenderListOfUsers/RenderListOfUsers";
 
 const App = () => {
+const [userList, setUserList] = useState([]);
 
+const onChange = ({firstName, lastName, age}) => {
+const user = {
+    firstName,
+    lastName,
+    age,
+    id: Date.now().toString()
+
+}
+
+    setUserList([
+            user,
+        ...userList
+    ])
+
+}
     return(
         <>
-            <GlobalStyle/>
-            Hello world!
+            <GlobalStyles/>
+            <UserInfoForm onChange={onChange}/>
+            <RenderListOfUsers  userList={userList}/>
+
+
         </>
     )
 }
